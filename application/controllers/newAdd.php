@@ -13,7 +13,7 @@ class newAdd extends MY_Controller {
                 "table" => "type", 
                 "where" => "where `t_id` = '".$this->input->get("id")."'",
             ];        
-            $data['editQuery'] = $this->type_model->select_entry($options);//$this->conditionalQuery();
+            $data['editQuery'] = $this->type_model->select_entry($options);
         }
         else{
             $data['action'] = "add";
@@ -37,18 +37,12 @@ class newAdd extends MY_Controller {
             }
         }
     }
-    public function delOneRec(){
-        if($this->input->get("id")){
-            $id = $this->input->get("id");
-            $this->type_model->del_entry($this->db->escape($id));
-        }
-    }
-    public function deleteSelected (){
+    public function deleteSelectedType (){
         if(isset($_POST['checkbox'])){
             $idArr = $_POST['checkbox'];
             if(count($idArr)){
                 $selectedItems = implode(',', $idArr); 
-                $this->type_model->del_entry($this->db->escape($selectedItems));
+                $this->type_model->del_entry($selectedItems);
             }
         }
         //echo $this->input->post('checkbox', true);
