@@ -12,7 +12,7 @@
 		</form> 
 	</div>
 	<div id="listDisplay">
-		<form id="listForm" action="<?php echo site_url('newAdd/deleteSelected');?>" method="post">
+		<form id="listForm" action="<?php echo site_url('newAdd/deleteSelectedType');?>" method="post">
 		<table id="typeList">
 			<tr>
 				<th class="squaredOne"><input type="checkbox" id="selectAll" onclick="checkBoxToggle(this)" /><label for="selectAll"></label></th>
@@ -27,14 +27,8 @@
 		$len = count($listData->result());
 		foreach ($listData->result() as $row)
 		{
-	        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr><!--a href='".site_url('newAdd/delOneRec/?id='.$row->t_id)."' onclick='return confirm(\"确定要删除这一项吗?\")'>删除</a-->";
+	        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr>";
 		}
-		if($len < 30){
-			$len = 30 - $len;
-		}
-		/*for($i = 0 ; $i < $len ; $i++){
-			echo "<tr><td colspan='7'>&nbsp;</td></tr>";	
-		}*/
 	?>
 		</table>
 		</form>
