@@ -1,0 +1,246 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, a:active, a:visited{
+    color:black;
+}
+h1#pageTitle{
+	color:black;
+	text-align: center;
+	padding:5px 0;
+}
+#topMenu{
+	clear: both;
+	position: absolute;
+	top: 0px;
+	height:50px;
+}
+#pageCont{
+	position: absolute;
+	top:50px;
+	bottom:50px;
+	left: 0px;
+    right: 0px;
+	overflow: hidden;
+}
+#footer{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	clear:both;
+}
+#footer em{
+	position: relative;
+    top: 16px;
+}
+#leftNav{
+	position:absolute;
+	top:0px;
+	bottom: 0px;
+	width:150px;
+    z-index: 10;
+}
+#leftNavButton{
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    width:20px;
+    background: white url(../assets/images/leftMenuButton.png) no-repeat 0px ;
+}
+#leftNavBar{
+    position: relative;
+    background: #dddfe8;
+    width:130px;
+    height: 100%;
+}
+#leftNavBar ul li a{
+    cursor:pointer;
+}
+#mainCont{
+	position: relative;
+	padding-left: 150px;
+	padding-right: 10px;
+}
+#listDisplay{
+	position: relative;
+	height:100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+/*    margin-top: 20px;
+*/	top: 0px;
+}
+#pageNavRow{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    left: 150px;
+    text-align: center;
+    background-color: white;
+}
+#pageNavRow a{
+    margin: 0px 5px;
+}
+table#typeList{
+	width: 100%;
+	border:1px solid black;
+}
+table#typeList td, table#typeList th{
+	text-align: center;
+	border: 1px solid black;
+}
+#formCont{}
+.formDiv{
+    width:700px;
+}
+.formDiv label{
+    width: 150px;
+    display: inline-block;
+}
+.formElement{
+    width:300px;
+}
+#parentSelectMenu ul{
+    list-style: none;
+    text-decoration:none;
+}
+#parentSelectMenu ul li{
+    margin-left: 20px;
+    line-height: 30px;
+}
+div.expandIcon.expanded{
+    background: url(../assets/images/collapseIcon.gif) no-repeat top right;
+}
+div.expandIcon{
+    background: url(../assets/images/expandIcon.gif) no-repeat top right;
+    width:30px;
+    height:30px;
+    display: inline-block;
+    float: left;
+}
+div.placeHoderIcon{
+    width: 30px;
+    height:30px;
+    display: inline-block;
+    float: left;
+};
+
+ul.level0 li{
+    background-color: #eeeeee;
+    margin-left: 0px;
+}
+ul.level1 li{
+    background-color: #dddddd;
+    margin-left: 20px;
+}
+ul.level2 li{
+    background-color: #CCCCCC;
+    margin-left: 20px;
+}
+ul.level2 li{
+    background-color: #BBBBBB;
+    margin-left: 20px;
+}
+ul.level3 li{
+    background-color: #AAAAAA;
+    margin-left: 20px;
+}
+ul.level4 li{
+    background-color: #999999;
+    margin-left: 20px;
+}
+ul.level5 li{
+    background-color: #666666;
+    margin-left: 20px;
+}
+ul.level6 li{
+    background-color: #333333;
+    margin-left: 20px;
+}
+ul.level7 li{
+    background-color: #999999;
+    margin-left: 20px;
+}
+#parentSelectMenu div.typeNameDisplay.hover{
+    background-color: #afd1ef;
+}
+#parentSelectMenu div.typeNameDisplay.clicked, #parentSelectMenu div.typeNameDisplay.clicked.hover{
+    background-color: #389bf1;
+}
+.hidden{
+    display:none;
+}
+input[type=checkbox]{
+    width: 20px;
+    height: 20px;    
+}
+#errorMsg{
+    color:red;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+}
+#errorMsg.hidden{
+    display:none;
+}
+/* .squaredOne */
+.squaredOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+/*  margin: 20px auto;
+  background: #fcfff4;
+  background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+*/}
+.squaredOne label {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  cursor: pointer;
+  background: -moz-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: -webkit-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+}
+.squaredOne label:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #00bf00;
+  background: -moz-linear-gradient(top, #00bf00 0%, #009400 100%);
+  background: -webkit-linear-gradient(top, #00bf00 0%, #009400 100%);
+  background: linear-gradient(to bottom, #00bf00 0%, #009400 100%);
+  -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.squaredOne label:hover::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.5;
+}
+.squaredOne input[type=checkbox] {
+  visibility: hidden;
+}
+.squaredOne input[type=checkbox]:checked + label:after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* end .squaredOne */
