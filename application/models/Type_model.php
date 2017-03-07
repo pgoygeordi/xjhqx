@@ -25,10 +25,11 @@ class Type_model extends CI_Model{
                 $sql.=" limit ".$options['pageOffset'].",".$options['rowsPerPage'];
             }
         }
-        //echo ($sql);
+        // echo ($sql);
+        // die();
         return $this->db->query($sql);
     }
-    public function conditionalQuery($options){
+    /*public function conditionalQuery($options){
         $sql = 'SELECT * FROM  `'.$this->table.'`';
         if(isset($options['table'])){
             if(isset($options['where'])){
@@ -44,7 +45,7 @@ class Type_model extends CI_Model{
         else{
             return false;
         }
-    }
+    }*/
     public function getRowsWithParentId($targetId, $allRows = null){
         $rtArray = [];
         if(!isset($allRows)){
@@ -123,11 +124,17 @@ class Type_model extends CI_Model{
         }    
     }
     public function del_entry($idstr){
-        $sql = "DELETE FROM $this->table WHERE `$this->table`.`t_id` in (".$idstr.")";
-        //echo $sql;
-        // if($this->db->query($sql)){
-        //     redirect(site_url('lists/view'));
-        // }
+        if(isset($idstr)){
+            $ids = explode(",",$idstr);
+            $condition = "`t_id`=".implode(" OR `t_id`=", $ids);
+            $sql = "DELETE FROM $this->table WHERE ".$condition;
+            echo $sql;
+            die();
+            if($this->db->query($sql)){
+                redirect(site_url('lists/view'));
+            }
+
+        }
     }   
 }
 ?>
