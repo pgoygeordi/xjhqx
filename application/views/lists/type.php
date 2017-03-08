@@ -23,13 +23,15 @@
 				<th>ParentId</th>
 				<th>ChildIds</th>
 			</tr>
-	<?php
+<?php
+	if(isset($listData)){
 		$len = count($listData->result());
 		foreach ($listData->result() as $row)
 		{
-	        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr>";
+        	echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr>";
 		}
-	?>
+	}
+?>
 		</table>
 		</form>
 	</div>

@@ -27,15 +27,27 @@
 				<th><a href="javascript:void(0);" onclick="doSearch('')">送修时间</a></th>
 				<th><a href="javascript:void(0);" onclick="doSearch('')">取车时间</a></th>
 			</tr>
-	<?php
-		if(isset($listData)){
-			$len = count($listData->result());
-			foreach ($listData->result() as $row)
-			{
-		        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr>";
-			}
+<?php
+	if(isset($listData)){
+		$len = count($listData->result());
+		$num = 1;
+		foreach ($listData->result() as $row)
+		{
+?>
+	        <tr>
+	        	<td><?php echo $num?></td>
+	        	<td><?php //echo $row->t_id?></td>
+	        	<td><a href='<?php echo site_url('newAdd/carType/edit?id='.$row->t_id)?>' target='_self' title='编辑该条'><?php echo ""?></a></td>
+	        	<td><?php echo ""?></td>
+	        	<td><?php echo ""?></td>
+	        	<td><?php echo ""?></td>
+	        	<td><?php echo ""?></td>
+	        </tr>
+<?php
+			$num++;
 		}
-	?>
+	}
+?>
 		</table>
 		</form>
 	</div>

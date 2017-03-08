@@ -27,13 +27,15 @@
 				<th>产品说明</th>
 				<th>管理</th>
 			</tr>
-	<?php
+<?php
+	if(isset($listData)){
 		$len = count($listData->result());
 		foreach ($listData->result() as $row)
 		{
 	        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->p_id."'/></td><td>".$row->p_id."</td><td>".$row->name."</td><td>".$row->carTypeId."</td><td>".$row->partPrice."</td><td>".$row->labourPrice."</td><td>".$row->partCode."</td><td>".$row->supplier."</td><td>".$row->stock."</td><td>".$row->partDescription."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->p_id)."' target='_self'>编辑</a> <a href='".site_url('newAdd/delOneRec/?id='.$row->p_id)."' onclick='return confirm(\"确定要删除这一项吗?\")'>删除</a></td></tr>";
 		}
-	?>
+	}
+?>
 		</table>
 		</form>
 	</div>

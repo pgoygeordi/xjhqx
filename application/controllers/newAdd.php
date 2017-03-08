@@ -12,7 +12,7 @@ class newAdd extends MY_Controller {
             $options = [
                 "table" => "type", 
                 "where" => "where `t_id` = '".$this->input->get("id")."'",
-            ];        
+            ];
             $data['editQuery'] = $this->type_model->select_entry($options);
         }
         else{
@@ -25,7 +25,6 @@ class newAdd extends MY_Controller {
         $this->load->view('newEdit/carType.php', $data);
         $this->load->view('siders/footer.php', $data);
     }
-    
     public function typeModification(){
         $formAction = $this->input->post("action", true);
         if(isset($formAction)){
