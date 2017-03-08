@@ -53,10 +53,10 @@ class newAdd extends MY_Controller {
         $data['siteTitle'] = '北京欣晶华汽车修理厂';
         $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
         $data['action'] = "添加";
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/left.php', $data);
+        $this->load->view('siders/header.php', $data);
+        $this->load->view('siders/left.php', $data);
         $this->load->view('newEdit/carPart.php', $data);
-        $this->load->view('templates/footer.php', $data);
+        $this->load->view('siders/footer.php', $data);
     }
     public function service(){
         if(!file_exists(APPPATH.'views/newEdit/carService.php')){
@@ -65,10 +65,10 @@ class newAdd extends MY_Controller {
         $data['siteTitle'] = '北京欣晶华汽车修理厂';
         $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
         $data['action'] = "添加";
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/left.php', $data);
+        $this->load->view('siders/header.php', $data);
+        $this->load->view('siders/left.php', $data);
         $this->load->view('newEdit/carService.php', $data);
-        $this->load->view('templates/footer.php', $data);
+        $this->load->view('siders/footer.php', $data);
     }
 }
 ?>

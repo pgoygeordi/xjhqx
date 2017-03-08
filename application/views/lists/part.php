@@ -6,7 +6,7 @@
 			<input type="hidden" name="orderDir" id="orderDir" value="<?php echo $orderDir;?>"/>
 		 	<input type="text" name="searchOption" placeholder="名称/燃油类型/排量" value="<?php echo $searchOption;?>" />
   			<input type="submit" value="搜索" /> 
-  			<a href="<?php echo site_url('newAdd/carType/add');?>" target="_self">添加</a> 
+  			<a href="<?php echo site_url('newAdd/carPart/add');?>" target="_self">添加</a> 
   			<a href="javascript:void(0);" onclick="submitForm('listForm','确定要删除所有选中项吗？')">删除选中项</a>
   			<div id="errorMsg" class="hidden">*Please Select</div> 
 		</form> 
@@ -32,8 +32,21 @@
 		$len = count($listData->result());
 		foreach ($listData->result() as $row)
 		{
-	        echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->p_id."'/></td><td>".$row->p_id."</td><td>".$row->name."</td><td>".$row->carTypeId."</td><td>".$row->partPrice."</td><td>".$row->labourPrice."</td><td>".$row->partCode."</td><td>".$row->supplier."</td><td>".$row->stock."</td><td>".$row->partDescription."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->p_id)."' target='_self'>编辑</a> <a href='".site_url('newAdd/delOneRec/?id='.$row->p_id)."' onclick='return confirm(\"确定要删除这一项吗?\")'>删除</a></td></tr>";
-		}
+?>
+	        <tr>
+	        	<td><input type='checkbox' name='checkbox[]' value='<?php echo $row->p_id?>'/></td>
+	        	<td><?php echo $row->p_id?></td>
+	        	<td><?php echo $row->name?></td>
+	        	<td><?php echo $row->carTypeId?></td>
+	        	<td><?php echo $row->partPrice?></td>
+	        	<td><?php echo $row->labourPrice?></td>
+	        	<td><?php echo $row->partCode?></td>
+	        	<td><?php echo $row->supplier?></td>
+	        	<td><?php echo $row->stock?></td>
+	        	<td><?php echo $row->partDescription?></td>
+	        	<td><a href='<?php echo site_url('newAdd/carType/edit?id='.$row->p_id)?>' target='_self'>编辑</a><a href='<?php echo site_url('newAdd/delOneRec/?id='.$row->p_id)?>' onclick='return confirm("确定要删除这一项吗?")'>删除</a></td>
+	        </tr>
+<?php	}
 	}
 ?>
 		</table>

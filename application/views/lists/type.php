@@ -28,7 +28,16 @@
 		$len = count($listData->result());
 		foreach ($listData->result() as $row)
 		{
-        	echo "<tr><td><input type='checkbox' name='checkbox[]' value='".$row->t_id."'/></td><td>".$row->t_id."</td><td><a href='".site_url('newAdd/carType/edit?id='.$row->t_id)."' target='_self' title='编辑该条'>".$row->name."</a></td><td>".$row->fuelType."</td><td>".$row->capacity."</td><td>".$row->parentId."</td><td>".$row->childrenIds."</td></tr>";
+?>
+        	<tr>
+        		<td><input type='checkbox' name='checkbox[]' value='<?php echo $row->t_id?>'/></td>
+        		<td><?php echo $row->t_id?></td><td><a href='<?php echo site_url('newAdd/carType/edit?id='.$row->t_id)?>' target='_self' title='编辑该条'><?php echo $row->name?></a></td>
+        		<td><?php echo $row->fuelType?></td>
+        		<td><?php echo $row->capacity?></td>
+        		<td><?php echo $row->parentId?></td>
+        		<td><?php echo $row->childrenIds?></td>
+        	</tr>
+<?php
 		}
 	}
 ?>

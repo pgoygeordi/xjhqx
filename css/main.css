@@ -52,6 +52,7 @@ h1#pageTitle{
     background: white url(../assets/images/leftMenuButton.png) no-repeat 0px ;
 }
 #leftNavBar{
+    padding: 10px;
     position: relative;
     background: #dddfe8;
     width:130px;

@@ -1,39 +1,39 @@
-	<?php
+<?php
 
-		function recurseTypes($arr, $level){
-			$rt = "";
-			if(count($arr)){
-				foreach ($arr as $row){
-					if(!empty($row["children"])){ // the index "children" is set if there is any Child element exists by php file newAdd.php => getRowsWithParentId, this children is not refer to the childrenIds column in the database table.
-						$rt .= "<li class='level".$level."-li'><div class='expandIcon'></div><div class='typeNameDisplay'>".$row["name"]."</div><input type='hidden' value='".$row["id"]."'>";
-						$newLevel = $level + 1;
-						$rt.= recurseTypes($row["children"], $newLevel);
-					}
-					else{
-						$rt .= "<li class='level".$level."-li'><div class='placeHoderIcon'></div><div class='typeNameDisplay'>".$row["name"]."</div><input type='hidden' value='".$row["id"]."'>";
-					}
-					$rt.= "</li>";
+	function recurseTypes($arr, $level){
+		$rt = "";
+		if(count($arr)){
+			foreach ($arr as $row){
+				if(!empty($row["children"])){ // the index "children" is set if there is any Child element exists by php file newAdd.php => getRowsWithParentId, this children is not refer to the childrenIds column in the database table.
+					$rt .= "<li class='level".$level."-li'><div class='expandIcon'></div><div class='typeNameDisplay'>".$row["name"]."</div><input type='hidden' value='".$row["id"]."'>";
+					$newLevel = $level + 1;
+					$rt.= recurseTypes($row["children"], $newLevel);
 				}
+				else{
+					$rt .= "<li class='level".$level."-li'><div class='placeHoderIcon'></div><div class='typeNameDisplay'>".$row["name"]."</div><input type='hidden' value='".$row["id"]."'>";
+				}
+				$rt.= "</li>";
 			}
-			if($rt!=""){
-				$cssClass = ($level==0)?"":" hidden";
-				$rt = "<ul class='level".$level.$cssClass."'>".$rt."</ul>";
-			}
-			return $rt;
 		}
-		$isEditing = ($action === "edit");
-		$fromTitle = "添加车辆类型：";
-		if($isEditing){
-			$fromTitle = "编辑车辆类型：";
-			$row = $editQuery->result()[0];
-			//var_dump($row);
-			echo "<script type='text/javascript'>$(document).ready(function (){locateParentItemInDropDown(".$row->parentId.");});</script>";
+		if($rt!=""){
+			$cssClass = ($level==0)?"":" hidden";
+			$rt = "<ul class='level".$level.$cssClass."'>".$rt."</ul>";
 		}
+		return $rt;
+	}
+	$isEditing = ($action === "edit");
+	$formTitle = "添加车辆类型：";
+	if($isEditing){
+		$formTitle = "编辑车辆类型：";
+		$row = $editQuery->result()[0];
+		//var_dump($row);
+		echo "<script type='text/javascript'>$(document).ready(function (){locateParentItemInDropDown(".$row->parentId.");});</script>";
+	}
 
-	?>
+?>
 <div id="mainCont">
 	<div id="listDisplay">
-		<h2><?php echo $fromTitle;?></h2>
+		<h2><?php echo $formTitle;?></h2>
 		<form id="addForm" action="<?php echo site_url('newAdd/typeModification');?>" method="post">
 			<div id="formCont">
 				<input type="hidden" name="action" value="<?php echo $action;?>">
