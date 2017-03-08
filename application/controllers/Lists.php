@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Lists extends MY_Controller {
     private $perPage = 30;
+    private $siteTitle = '北京欣晶华汽车修理厂';
+    private $authorCopy = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
     private function doPagination($totalRows){
         //http://codeigniter.org.cn/user_guide/libraries/pagination.html#id7
         //1、载入分页类    
@@ -28,8 +30,8 @@ class Lists extends MY_Controller {
             show_404();
         }
         $data['title'] = ucfirst($page); // Uppercase the first letter
-        $data['siteTitle'] = '北京欣晶华汽车修理厂';
-        $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
+        $data['siteTitle'] = $this->siteTitle;
+        $data['authorCopy'] = $this->authorCopy;
         $data['orderBy'] = "id";
         $data['formOn'] = $page;
         $data['orderDir'] = "asc";
@@ -56,8 +58,8 @@ class Lists extends MY_Controller {
     }
     public function doSearch($offset=0){
         //$data['title'] = ucfirst($page); // Uppercase the first letter
-        $data['siteTitle'] = '北京欣晶华汽车修理厂';
-        $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
+        $data['siteTitle'] = $this->siteTitle;
+        $data['authorCopy'] = $this->authorCopy;
         $orderDir = ($this->input->post("orderDir") == "asc")?"asc":"desc";
         $orderBy = ($this->input->post("orderBy"));
         $table = ($this->input->post("formOn"));
@@ -125,8 +127,8 @@ class Lists extends MY_Controller {
     public function index($listItems = "type")
     {
         $data['title'] = ucfirst("Home"); // Uppercase the first letter
-        $data['siteTitle'] = '北京欣晶华汽车修理厂';
-        $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
+        $data['siteTitle'] = $this->siteTitle;
+        $data['authorCopy'] = $this->authorCopy;
         $this->view($listItems);
     }
     private function goToView($page, $data){
