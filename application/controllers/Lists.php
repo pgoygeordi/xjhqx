@@ -27,7 +27,6 @@ class Lists extends MY_Controller {
         if(!file_exists(APPPATH.'views/lists/'.$page.'.php')){
             show_404();
         }
-
         $data['title'] = ucfirst($page); // Uppercase the first letter
         $data['siteTitle'] = '北京欣晶华汽车修理厂';
         $data['authorCopy'] = '<a href="mailto:pgoygeordi@outlook.com">PGOY</a> 2016';
@@ -46,6 +45,9 @@ class Lists extends MY_Controller {
                 $queryAll = $this->part_model->select_entry();
                 $totalRows = $queryAll->num_rows();
                 $query = $this->part_model->select_entry(array('pageOffset'=>$offset, 'rowsPerPage'=>$this->perPage));
+                break;
+            case "history":
+                $query = null;
                 break;
         }
         $this->doPagination($totalRows);
